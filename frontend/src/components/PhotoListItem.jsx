@@ -2,9 +2,7 @@ import React from "react";
 
 import "../styles/PhotoListItem.scss";
 
-const PhotoListItem = (props) => {
-
-  const { imageSource, profile, username, location } = props.sampleDataForPhotoListItem;
+const PhotoListItem = ({ imageSource, profile, username, location }) => {
 
   return (
     <>
