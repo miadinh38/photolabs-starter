@@ -1,6 +1,7 @@
 import React from 'react';
 
 import PhotoListItem from './components/PhotoListItem';
+import PhotoFavButton from 'components/PhotoFavButton';
 import './App.scss';
 
 const photos = new Array(3).fill(null).map((_, index) => ({
@@ -19,6 +20,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <PhotoFavButton />
       {photos.map((data => (
       <PhotoListItem key={data.id} {...data}/>
     )))}
