@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const FavIcon = ({displayAlert, selected, onClick}) => {
+const FavIcon = ({displayAlert, selected}) => {
 
   const [ active, setActive ] = useState(selected === 'false');
 

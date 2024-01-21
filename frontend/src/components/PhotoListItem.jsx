@@ -5,8 +5,6 @@ import "../styles/PhotoListItem.scss";
 
 const PhotoListItem = ({ imageSource, profile, username, location }) => {
 
-  const photos = new Array(3);
-
   return (
     <div className='photo-list__item'>
       <img className='photo-list__image' src={imageSource}/>
