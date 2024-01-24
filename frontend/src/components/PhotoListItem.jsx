@@ -7,19 +7,17 @@ const PhotoListItem = ({ urls, user, location }) => {
 
   return (
     <div className='photo-list__item'>
+      <PhotoFavButton />
       <img className='photo-list__image' src={urls.regular} alt="photo"/>
 
       <div className='photo-list__user-details'>
         <img className='photo-list__user-profile' src={user.profile} alt="Profile"/>      
 
         <div className='photo-list__user-info'>
-          <p>{user.name}</p>
-          <p className='photo-list__user-location'>{location.city}, {location.country}</p>
+          <span>{user.name}</span><br></br>
+          <span className='photo-list__user-location'>{location.city}, {location.country}</span>
         </div>
       </div>
-
-      <PhotoFavButton />
-
     </div>
   )
 
