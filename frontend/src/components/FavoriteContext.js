@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 
-//creat a context object that will be used to share state across components
+//create a context object that will be used to share state across components
 const FavoriteContext = createContext(); 
 
 export const FavoriteProvider = ({ children })=> {
