@@ -1,9 +1,12 @@
 import React from "react";
 import TopicList from "./TopicList";
+import { useFavorite } from "./FavoriteContext";
 
 import "../styles/TopNavigationBar.scss";
 
 const TopNavigation = (props) => {
+  const { favoritePhotos } = useFavorite();
+
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
@@ -13,7 +16,7 @@ const TopNavigation = (props) => {
           width="20"
           height="17"
           viewBox="0 0 24 19"
-          fill="#C80000"
+          fill={favoritePhotos.length > 0 ? "#C80000" : "transparent"}
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
