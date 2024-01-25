@@ -3,13 +3,8 @@ import React, { useState } from "react";
 import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
 
-const PhotoList = ({photos, toggleFavorite, favoritePhotos}) => {
-  const [ selectedPhotoId, setSelectedPhotoId ] = useState(null);
-
-  const handleOpenModal = (photoId) => {
-    setSelectedPhotoId(photoId)
-  };
-
+const PhotoList = ({photos, toggleFavorite, favoritePhotos, openModal}) => {
+  
   return (
     <ul className="photo-list">
       {photos.map((data => (
@@ -21,7 +16,7 @@ const PhotoList = ({photos, toggleFavorite, favoritePhotos}) => {
         user={data.user}
         toggleFavorite={toggleFavorite}
         favoritePhotos={favoritePhotos}
-        onOpenModal={handleOpenModal}
+        openModal={openModal}
       />
       )))}
     </ul>

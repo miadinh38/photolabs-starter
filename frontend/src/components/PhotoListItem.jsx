@@ -3,10 +3,10 @@ import PhotoFavButton from "./PhotoFavButton";
 
 import "../styles/PhotoListItem.scss";
 
-const PhotoListItem = ({ id, urls, user, location, toggleFavorite, favoritePhotos, onOpenModal }) => {
+const PhotoListItem = ({ id, urls, user, location, toggleFavorite, favoritePhotos, openModal }) => {
   const handleClick = () => {
     console.log("Photo Clicked");
-    onOpenModal(urls);
+    openModal();
   }
 
   return (
