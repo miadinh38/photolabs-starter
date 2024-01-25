@@ -8,11 +8,11 @@ const PhotoDetailsModal = ({closeModal}) => {
   const handleCloseModal = () => {
     closeModal();
   }
-  
+
   return (
     <div className="photo-details-modal">
-      <button className="photo-details-modal__close-button">
-        <img src={closeSymbol} alt="close symbol" onClick={handleCloseModal}/>
+      <button className="photo-details-modal__close-button" onClick={handleCloseModal}>
+        <img src={closeSymbol} alt="close symbol"/>
       </button>
     </div>
   )
