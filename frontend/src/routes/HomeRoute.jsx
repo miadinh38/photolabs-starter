@@ -6,9 +6,11 @@ import TopNavigation from 'components/TopNavigationBar';
 import '../styles/HomeRoute.scss';
 
 const HomeRoute = ({ topics, photos, toggleFavorite, favoritePhotos }) => {
+  const isFavPhotoExist = favoritePhotos && favoritePhotos.length > 0;
+  
   return (
     <div className="home-route">
-      <TopNavigation topics={topics}/>
+      <TopNavigation topics={topics} isFavPhotoExist={isFavPhotoExist}/>
       <PhotoList 
         photos={photos}
         toggleFavorite={toggleFavorite}
