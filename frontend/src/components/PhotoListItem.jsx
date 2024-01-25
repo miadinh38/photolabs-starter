@@ -5,7 +5,6 @@ import "../styles/PhotoListItem.scss";
 
 const PhotoListItem = ({ id, urls, user, location, toggleFavorite, favoritePhotos, openModal }) => {
   const handleClick = () => {
-    console.log("Photo Clicked");
     openModal();
   }
 

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
 
-const PhotoList = ({photos, toggleFavorite, favoritePhotos, openModal}) => {
+const PhotoList = ({photos, toggleFavorite, favoritePhotos, openModal, onOpenModal}) => {
   
   return (
     <ul className="photo-list">
@@ -17,6 +17,7 @@ const PhotoList = ({photos, toggleFavorite, favoritePhotos, openModal}) => {
         toggleFavorite={toggleFavorite}
         favoritePhotos={favoritePhotos}
         openModal={openModal}
+        onOpenModal={onOpenModal}
       />
       )))}
     </ul>
