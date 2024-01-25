@@ -5,7 +5,7 @@ import "../styles/PhotoListItem.scss";
 
 const PhotoListItem = ({ id, urls, user, location, toggleFavorite, favoritePhotos, openModal }) => {
   const handleClick = () => {
-    openModal();
+    openModal({id, urls, user, location});
   }
 
   return (
