@@ -27,7 +27,7 @@ const App = () => {
     <FavoriteProvider>
       <div className="App">
         <HomeRoute photos={photos} topics={topics} openModal={openModal}/>
-        {displayModal && <PhotoDetailsModal closeModal={closeModal} selectedPhoto={selectedPhoto}/>}
+        {displayModal && <PhotoDetailsModal photos={photos} closeModal={closeModal} selectedPhoto={selectedPhoto}/>}
       </div>
     </FavoriteProvider>
   );
