@@ -11,6 +11,11 @@ const PhotoDetailsModal = ({photos, urls, user, location, closeModal, selectedPh
     closeModal();
   }
 
+  const similarPhotoArray = photos.map(photo => ({
+    ...photo,
+    similar_photos: Object.keys(photo.similar_photos)
+  }))
+
   return (
     <div className="photo-details-modal">
       <button className="photo-details-modal__close-button" onClick={handleCloseModal}>
@@ -32,7 +37,7 @@ const PhotoDetailsModal = ({photos, urls, user, location, closeModal, selectedPh
       </div>
 
       <span className='photo-details-modal__header'>Similar Photos</span>
-      <PhotoList photos={photos}/>
+      <PhotoList photos={similarPhotoArray}/>
     </div>
   )
 };

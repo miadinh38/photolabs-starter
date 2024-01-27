@@ -3,9 +3,9 @@ import PhotoFavButton from "./PhotoFavButton";
 
 import "../styles/PhotoListItem.scss";
 
-const PhotoListItem = ({ id, urls, user, location, toggleFavorite, favoritePhotos, openModal }) => {
+const PhotoListItem = ({ id, urls, user, location, similar_photos, toggleFavorite, favoritePhotos, openModal }) => {
   const handleClick = () => {
-    openModal({id, urls, user, location});
+    openModal({id, urls, user, location, similar_photos});
   }
 
   return (
