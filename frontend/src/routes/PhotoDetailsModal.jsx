@@ -11,10 +11,10 @@ const PhotoDetailsModal = ({photos, urls, user, location, closeModal, selectedPh
     closeModal();
   }
 
-  const similarPhotoArray = photos.map(photo => ({
-    ...photo,
-    similar_photos: Object.keys(photo.similar_photos)
-  }))
+
+  const similarPhotoArray = Object.values(selectedPhoto.similar_photos);
+  console.log('Similar Photo Array', similarPhotoArray);
+
 
   return (
     <div className="photo-details-modal">

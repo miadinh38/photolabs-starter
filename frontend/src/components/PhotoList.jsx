@@ -14,6 +14,7 @@ const PhotoList = ({photos, toggleFavorite, favoritePhotos, openModal}) => {
         urls={data.urls}
         location={data.location}
         user={data.user}
+        similar_photos={data.similar_photos}
         toggleFavorite={toggleFavorite}
         favoritePhotos={favoritePhotos}
         openModal={openModal}
