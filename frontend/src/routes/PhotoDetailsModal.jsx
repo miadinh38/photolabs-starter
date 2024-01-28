@@ -48,23 +48,25 @@ const PhotoDetailsModal = ({ closeModal, selectedPhoto, favoritePhotos, toggleFa
             alt="Profile"
           />
 
-          <span className="photo-details-modal__photographer-info">
-            {selectedPhoto.user.name}
-          </span>
-          <span className="photo-details-modal__photographer-location">
-            {selectedPhoto.location.city}, {selectedPhoto.location.country}
-          </span>
+          <div className="photo-details-modal__photographer-info">
+            <span>{selectedPhoto.user.name}</span>
+            <span className="photo-details-modal__photographer-location"> {selectedPhoto.location.city}, {selectedPhoto.location.country}</span>
+          </div>
         </div>
 
         <div className="photo-details-modal__top-bar">
           <span className="photo-details-modal__header">Similar Photos</span>
         </div>
+        
       </div>
-      <PhotoList 
-        favoritePhotos={favoritePhotos} 
-        toggleFavorite={toggleFavorite} 
-        photos={similarPhotoArray} 
-      />
+      
+      <div className="photo-details-modal__images">
+        <PhotoList 
+          favoritePhotos={favoritePhotos} 
+          toggleFavorite={toggleFavorite} 
+          photos={similarPhotoArray} 
+        />
+      </div>
     </div>
   );
 };
