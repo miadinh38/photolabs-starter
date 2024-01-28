@@ -7,6 +7,10 @@ import PhotoFavButton from "components/PhotoFavButton";
 
 const PhotoDetailsModal = ({ closeModal, selectedPhoto, favoritePhotos, toggleFavorite }) => {
   console.log("Selected Photo Details:", selectedPhoto);
+  // Check if selectedPhoto exists
+  if (!selectedPhoto) {
+    return null;
+  }
 
   const handleCloseModal = () => {
     closeModal();
