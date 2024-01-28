@@ -25,7 +25,11 @@ const PhotoDetailsModal = ({ closeModal, selectedPhoto, favoritePhotos, toggleFa
       
 
       <div className="photo-details-modal__images">
-      <PhotoFavButton favoritePhotos={favoritePhotos} toggleFavorite={toggleFavorite}/>
+      <PhotoFavButton 
+        favoritePhotos={favoritePhotos} 
+        toggleFavorite={toggleFavorite}
+        photoId={selectedPhoto.id}
+      />
         <img
           className="photo-details-modal__image"
           src={selectedPhoto.urls.regular}
@@ -51,7 +55,11 @@ const PhotoDetailsModal = ({ closeModal, selectedPhoto, favoritePhotos, toggleFa
           <span className="photo-details-modal__header">Similar Photos</span>
         </div>
       </div>
-      <PhotoList photos={similarPhotoArray} />
+      <PhotoList 
+        favoritePhotos={favoritePhotos} 
+        toggleFavorite={toggleFavorite} 
+        photos={similarPhotoArray} 
+      />
     </div>
   );
 };

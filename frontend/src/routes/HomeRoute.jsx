@@ -5,7 +5,7 @@ import TopNavigation from 'components/TopNavigationBar';
 
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = ({ topics, photos, toggleFavorite, favoritePhotos, openModal, closeModal }) => {
+const HomeRoute = ({ topics, photos, openModal, closeModal }) => {
   // Check if favoritePhotos is defined before accessing its length
   const isFavPhotoExist = favoritePhotos && favoritePhotos.length > 0;
 
