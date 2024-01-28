@@ -12,7 +12,8 @@ const PhotoDetailsModal = ({ closeModal, selectedPhoto, favoritePhotos, toggleFa
     closeModal();
   };
 
-  const similarPhotoArray = Object.values(selectedPhoto.similar_photos); // convert similar_photos obj to arr
+  // convert similar_photos obj to arr
+  const similarPhotoArray = selectedPhoto && selectedPhoto.similar_photos ? Object.values(selectedPhoto.similar_photos) : [] ; 
 
   return (
     <div className="photo-details-modal">
