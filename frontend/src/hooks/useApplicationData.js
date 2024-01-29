@@ -28,10 +28,11 @@ function reducer(state, action) {
         return {...state, selectedPhoto: action.payload.photo };
 
       case ACTIONS.DISPLAY_PHOTO_DETAILS:
-        return {...state, isPhotoDetailsModalOpen: true };
+        return {...state, selectedPhoto: action.payload.photo, isPhotoDetailsModalOpen: true };
 
       case ACTIONS.CLOSE_MODAL:
         return {...state, isPhotoDetailsModalOpen: false };
+      
     
     default:
       throw new Error(
@@ -54,12 +55,13 @@ const useApplicationData = () => {
   };
 
   const selectPhoto = (photo) => {
-    dispatch({type: ACTIONS.SELECT_PHOTO, payload: {photo} });
+    dispatch({type: ACTIONS.SELECT_PHOTO, payload: {selectedPhoto: photo} });
   };
 
-  const displayPhotoDetails = () => {
-    dispatch({type: ACTIONS.DISPLAY_PHOTO_DETAILS});
+  const displayPhotoDetails = (photo) => {
+    dispatch({type: ACTIONS.DISPLAY_PHOTO_DETAILS, payload: {selectedPhoto: photo} });
   }
+
 
   const closeModal = () => {
     dispatch({type: ACTIONS.CLOSE_MODAL});
