@@ -20,6 +20,8 @@ const App = () => {
     closeModal,
   } = useApplicationData();
 
+  console.log("State", state);
+
   return (
     <FavoriteProvider>
       <div className="App">
@@ -32,7 +34,7 @@ const App = () => {
           <PhotoDetailsModal
             photos={photos}
             closeModal={closeModal}
-            selectedPhoto={selectPhoto}
+            selectedPhoto={state.selectedPhoto}
           />
         )}
       </div>

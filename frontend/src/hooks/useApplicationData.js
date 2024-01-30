@@ -25,10 +25,10 @@ function reducer(state, action) {
         return {...state, favPhotoIds: action.payload.newFavPhotoIds }
 
       case ACTIONS.SELECT_PHOTO:
-        return {...state, selectedPhoto: action.payload.photo };
+        return {...state, selectedPhoto: action.payload.selectedPhoto };
 
       case ACTIONS.DISPLAY_PHOTO_DETAILS:
-        return {...state, selectedPhoto: action.payload.photo, isPhotoDetailsModalOpen: true };
+        return {...state, selectedPhoto: action.payload.selectedPhoto, isPhotoDetailsModalOpen: true };
 
       case ACTIONS.CLOSE_MODAL:
         return {...state, isPhotoDetailsModalOpen: false };
@@ -59,6 +59,7 @@ const useApplicationData = () => {
   };
 
   const displayPhotoDetails = (photo) => {
+    console.log("Photo", photo);
     dispatch({type: ACTIONS.DISPLAY_PHOTO_DETAILS, payload: {selectedPhoto: photo} });
   }
 
@@ -79,54 +80,3 @@ const useApplicationData = () => {
 };
 
 export default useApplicationData;
-
-
-// //State to hold the entire application state
-// const [state, setState] = useState({
-//   favPhotoIds: [],
-//   selectedPhoto: null,
-//   isPhotoDetailsModalOpen: false,
-// });
-
-// //Action to update favorite photo IDs
-// const updateToFavPhotoIds = (newFavPhotoIds) => {
-//   setState((prevState) => ({
-//     ...prevState,
-//     favPhotoIds: newFavPhotoIds,
-//   }));
-// }
-
-// //Action to set the selected photo
-// const setPhotoSelected = (photo) => {
-//   setState((prevState) => ({
-//     ...prevState,
-//     selectedPhoto: photo,
-//   }));
-// }
-
-// //Action to open the photo details modal when photo is selected
-// const onPhotoSelect = (photo) =>  {
-//   setPhotoSelected(photo),
-  
-//   setState((prevState) => ({
-//     ...prevState,
-//     isPhotoDetailsModalOpen: true,
-//   }));
-// }
-
-// //Action to close the photo details modal
-// const onClosePhotoDetailsModal = () =>  {
-//   setState((prevState) => ({
-//     ...prevState,
-//     isPhotoDetailsModalOpen: false,
-//   }));
-// }
-
-
-// return {
-//   state,
-//   updateToFavPhotoIds,
-//   setPhotoSelected,
-//   onClosePhotoDetailsModal,
-//   onPhotoSelect,
-// };
