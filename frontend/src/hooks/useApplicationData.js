@@ -1,9 +1,12 @@
-import React, { useState, useReducer } from 'react';
+import React, { useState, useReducer, useEffect } from 'react';
+
 
 const initialState = {
     favPhotoIds: [],
     selectedPhoto: null,
     isPhotoDetailsModalOpen: false,
+    photoData: [],
+    topicData: []
   };
 
 export const ACTIONS = {
@@ -32,6 +35,12 @@ function reducer(state, action) {
 
       case ACTIONS.CLOSE_MODAL:
         return {...state, isPhotoDetailsModalOpen: false };
+
+      case ACTIONS.SET_PHOTO_DATA:
+        return {...state, photoData: action.payload}
+
+      case ACTIONS.SET_TOPIC_DATA:
+        return {...state, topicData: action.payload}
       
     
     default:
@@ -44,6 +53,23 @@ function reducer(state, action) {
 const useApplicationData = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState); 
+
+  useEffect(() => {
+    fetch('http://localhost:8001/api/photos')
+      .then(res => res.json())
+      .then(data => {
+        dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: data})
+      })
+  }, [])
+
+  useEffect(() => {
+    fetch('http://localhost:8001/api/topics')
+      .then(res => res.json())
+      .then(data => {
+        dispatch({type: ACTIONS.SET_TOPIC_DATA, payload: data})
+      })
+  }, [])
+  
 
   const favPhotoAdded = (newFavPhotoIds) => {
     dispatch({type: ACTIONS.FAV_PHOTO_ADDED, payload: {newFavPhotoIds} 

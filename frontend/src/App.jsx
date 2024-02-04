@@ -2,8 +2,6 @@ import React, { useState } from "react";
 
 import HomeRoute from "routes/HomeRoute";
 import "./App.scss";
-import topics from "mocks/topics";
-import photos from "mocks/photos";
 import { FavoriteProvider } from "./components/FavoriteContext";
 import PhotoDetailsModal from "routes/PhotoDetailsModal";
 import useApplicationData from "hooks/useApplicationData";
@@ -26,8 +24,8 @@ const App = () => {
     <FavoriteProvider>
       <div className="App">
         <HomeRoute  
-          photos={photos} 
-          topics={topics} 
+          photos={state.photoData}
+          topics={state.topicData} 
           openModal={displayPhotoDetails} 
         />
         {state.isPhotoDetailsModalOpen && (
