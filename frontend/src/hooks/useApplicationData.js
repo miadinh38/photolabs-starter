@@ -6,7 +6,7 @@ const initialState = {
     selectedPhoto: null,
     isPhotoDetailsModalOpen: false,
     photoData: [],
-    topicData: []
+    topicData: [],
   };
 
 export const ACTIONS = {
@@ -17,6 +17,7 @@ export const ACTIONS = {
   SELECT_PHOTO: 'SELECT_PHOTO',
   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
   CLOSE_MODAL: 'CLOSE_MODAL',
+  GET_PHOTOS_BY_TOPICS: 'GET_PHOTO_BY_TOPICS'
 }
 
 function reducer(state, action) {
@@ -41,6 +42,9 @@ function reducer(state, action) {
 
       case ACTIONS.SET_TOPIC_DATA:
         return {...state, topicData: action.payload}
+
+      case ACTIONS.GET_PHOTOS_BY_TOPICS:
+        return {...state, photoData: action.payload}
       
     
     default:
@@ -69,8 +73,17 @@ const useApplicationData = () => {
         dispatch({type: ACTIONS.SET_TOPIC_DATA, payload: data})
       })
   }, [])
-  
 
+  const getPhotosByTopics = (id) => {
+    console.log('id: ', id);
+    fetch(`http://localhost:8001/api/topics/photos/${id}`)
+      .then(res => res.json())
+      .then(data => {
+        console.log('data: ', data)
+        dispatch({type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: data})
+      })
+  }
+  
   const favPhotoAdded = (newFavPhotoIds) => {
     dispatch({type: ACTIONS.FAV_PHOTO_ADDED, payload: {newFavPhotoIds} 
     });
@@ -102,6 +115,7 @@ const useApplicationData = () => {
     selectPhoto,
     displayPhotoDetails,
     closeModal,
+    getPhotosByTopics
   };
 };
 

@@ -16,6 +16,7 @@ const App = () => {
     selectPhoto,
     displayPhotoDetails,
     closeModal,
+    getPhotosByTopics
   } = useApplicationData();
 
   console.log("State", state);
@@ -26,6 +27,7 @@ const App = () => {
         <HomeRoute  
           photos={state.photoData}
           topics={state.topicData} 
+          getPhotosByTopics={getPhotosByTopics}
           openModal={displayPhotoDetails} 
         />
         {state.isPhotoDetailsModalOpen && (
