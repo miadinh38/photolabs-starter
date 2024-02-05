@@ -6,7 +6,6 @@ import PhotoList from "components/PhotoList";
 import PhotoFavButton from "components/PhotoFavButton";
 
 const PhotoDetailsModal = ({ closeModal, selectedPhoto, favoritePhotos, toggleFavorite }) => {
-  console.log("Selected Photo Details:", selectedPhoto);
   // Check if selectedPhoto exists
   if (!selectedPhoto) {
     return null;
@@ -60,8 +59,8 @@ const PhotoDetailsModal = ({ closeModal, selectedPhoto, favoritePhotos, toggleFa
         
       </div>
       
-      <div className="photo-details-modal__images">
-        <PhotoList 
+      <div className="photo-details-modal__similar-photos-container">
+        <PhotoList
           favoritePhotos={favoritePhotos} 
           toggleFavorite={toggleFavorite} 
           photos={similarPhotoArray} 
