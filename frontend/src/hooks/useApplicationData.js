@@ -75,11 +75,9 @@ const useApplicationData = () => {
   }, [])
 
   const getPhotosByTopics = (id) => {
-    console.log('id: ', id);
     fetch(`http://localhost:8001/api/topics/photos/${id}`)
       .then(res => res.json())
       .then(data => {
-        console.log('data: ', data)
         dispatch({type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: data})
       })
   }

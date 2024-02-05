@@ -32,7 +32,7 @@ const App = () => {
         />
         {state.isPhotoDetailsModalOpen && (
           <PhotoDetailsModal
-            photos={photos}
+            photos={state.photoData}
             closeModal={closeModal}
             selectedPhoto={state.selectedPhoto}
           />
