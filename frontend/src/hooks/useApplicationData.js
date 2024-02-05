@@ -96,7 +96,6 @@ const useApplicationData = () => {
   };
 
   const displayPhotoDetails = (photo) => {
-    console.log("Photo", photo);
     dispatch({type: ACTIONS.DISPLAY_PHOTO_DETAILS, payload: {selectedPhoto: photo} });
   }
 

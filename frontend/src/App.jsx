@@ -19,8 +19,6 @@ const App = () => {
     getPhotosByTopics
   } = useApplicationData();
 
-  console.log("State", state);
-
   return (
     <FavoriteProvider>
       <div className="App">
