@@ -1,5 +1,6 @@
 import React from "react";
 import PhotoFavButton from "./PhotoFavButton";
+import { FavoriteProvider } from "./FavoriteContext";
 
 import "../styles/PhotoListItem.scss";
 

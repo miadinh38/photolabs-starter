@@ -2,12 +2,15 @@ import React, {useState} from 'react';
 
 const FavIcon = ({displayAlert, selected, onClick}) => {
 
-  const [ active, setActive ] = useState(selected === 'false');
+  const [ active, setActive ] = useState(selected);
 
   const handleClick = () => {
+    setActive((prevActive) => (!prevActive));
 
-    console.log("Button clicked");
-    setActive(prevActive => (prevActive === 'false' ? 'true' : 'false'));
+    // Call the onClick callback if it's provided
+    if(onClick) {
+      onClick();
+    }
 
   }
 
