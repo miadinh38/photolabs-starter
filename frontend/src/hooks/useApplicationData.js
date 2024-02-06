@@ -14,7 +14,6 @@ export const ACTIONS = {
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
-  SELECT_PHOTO: 'SELECT_PHOTO',
   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
   CLOSE_MODAL: 'CLOSE_MODAL',
   GET_PHOTOS_BY_TOPICS: 'GET_PHOTO_BY_TOPICS'
@@ -27,9 +26,6 @@ function reducer(state, action) {
 
       case ACTIONS.FAV_PHOTO_REMOVED:
         return {...state, favPhotoIds: action.payload.newFavPhotoIds }
-
-      case ACTIONS.SELECT_PHOTO:
-        return {...state, selectedPhoto: action.payload.selectedPhoto };
 
       case ACTIONS.DISPLAY_PHOTO_DETAILS:
         return {...state, selectedPhoto: action.payload.selectedPhoto, isPhotoDetailsModalOpen: true };
@@ -58,6 +54,7 @@ const useApplicationData = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState); 
 
+  // Fetch API photo data 
   useEffect(() => {
     fetch('http://localhost:8001/api/photos')
       .then(res => res.json())
@@ -66,6 +63,7 @@ const useApplicationData = () => {
       })
   }, [])
 
+  // Fetch API topic data
   useEffect(() => {
     fetch('http://localhost:8001/api/topics')
       .then(res => res.json())
@@ -74,6 +72,7 @@ const useApplicationData = () => {
       })
   }, [])
 
+  // Function to get all photos when select a topic
   const getPhotosByTopics = (id) => {
     fetch(`http://localhost:8001/api/topics/photos/${id}`)
       .then(res => res.json())
@@ -91,15 +90,12 @@ const useApplicationData = () => {
     dispatch({type: ACTIONS.FAV_PHOTO_REMOVED, payload: {newFavPhotoIds} });
   };
 
-  const selectPhoto = (photo) => {
-    dispatch({type: ACTIONS.SELECT_PHOTO, payload: {selectedPhoto: photo} });
-  };
-
+  // Function to open modal when click on a photo
   const displayPhotoDetails = (photo) => {
     dispatch({type: ACTIONS.DISPLAY_PHOTO_DETAILS, payload: {selectedPhoto: photo} });
   }
 
-
+  // Function to close modal
   const closeModal = () => {
     dispatch({type: ACTIONS.CLOSE_MODAL});
   }
@@ -109,7 +105,6 @@ const useApplicationData = () => {
     state,
     favPhotoAdded,
     favPhotoRemoved ,
-    selectPhoto,
     displayPhotoDetails,
     closeModal,
     getPhotosByTopics
