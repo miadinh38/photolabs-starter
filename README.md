@@ -6,7 +6,7 @@ The PhotoLabs project for the Web Development React course programming.
 ## Final Product - UI
 
 ![Home Page of PhotoLabs](/frontend/src/assets/homepage.png)
-![Display modal when clicking on the photo](/frontend/src/assets/modal.png)
+![Display modal when clicking on the photo](/frontend/src/assets/displayModal.png)
 ![Display similar photos in modal](/frontend/src/assets/modal_similarphotos.png)
 
 ## Setup
