@@ -13,7 +13,6 @@ const App = () => {
     state,
     favPhotoAdded,
     favPhotoRemoved,
-    selectPhoto,
     displayPhotoDetails,
     closeModal,
     getPhotosByTopics
